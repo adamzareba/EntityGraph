@@ -15,6 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedEntityGraphs;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 
@@ -22,6 +26,31 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "companyWithDepartmentsNamedQuery",
+                query = "SELECT DISTINCT c " +
+                        "FROM Company c " +
+                        "LEFT JOIN FETCH c.departments " +
+                        "WHERE c.id = :id"),
+        @NamedQuery(name = "companyWithDepartmentsAndEmployeesNamedQuery",
+                query = "SELECT DISTINCT c " +
+                        "FROM Company c " +
+                        "LEFT JOIN FETCH c.departments as d " +
+                        "LEFT JOIN FETCH d.employees " +
+                        "WHERE c.id = :id"),
+        @NamedQuery(name = "companyWithDepartmentsAndEmployeesAndOfficesNamedQuery",
+                query = "SELECT DISTINCT c " +
+                        "FROM Company c " +
+                        "LEFT JOIN FETCH c.departments as d " +
+                        "LEFT JOIN FETCH d.employees " +
+                        "LEFT JOIN FETCH d.offices " +
+                        "WHERE c.id = :id"),
+        @NamedQuery(name = "companyWithCarsNamedQuery",
+                query = "SELECT DISTINCT c " +
+                        "FROM Company c " +
+                        "LEFT JOIN FETCH c.cars " +
+                        "WHERE c.id = :id"),
+})
 @NamedEntityGraphs({
         @NamedEntityGraph(name = "companyWithDepartmentsGraph",
                 attributeNodes = {@NamedAttributeNode("departments")}),

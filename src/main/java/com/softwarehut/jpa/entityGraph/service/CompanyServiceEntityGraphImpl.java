@@ -2,7 +2,6 @@ package com.softwarehut.jpa.entityGraph.service;
 
 import com.softwarehut.jpa.entityGraph.model.Company;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -10,11 +9,12 @@ import java.util.Map;
 
 import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-@Service
-public class CompanyServiceImpl implements CompanyService {
+@Service(value = "companyServiceEntityGraph")
+public class CompanyServiceEntityGraphImpl implements CompanyService {
 
-    @Autowired
+    @PersistenceContext
     private EntityManager entityManager;
 
     public Company getCompanyWithDepartments(Long companyId) {
