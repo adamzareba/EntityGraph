@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
 
     @Autowired
-    @Qualifier(value = "companyServiceCriteriaAPI")
+    @Qualifier(value = "companyServiceEntityGraph")
     private CompanyService companyService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path = "/withDepartments/{companyId}")
