@@ -1,5 +1,4 @@
 # EntityGraph
-=============
 
 [![Issue Count](https://codeclimate.com/github/adamzareba/EntityGraph/badges/issue_count.svg)](https://codeclimate.com/github/adamzareba/EntityGraph)
 
