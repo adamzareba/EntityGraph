@@ -1,4 +1,7 @@
 # EntityGraph
+=============
+
+[![Issue Count](https://codeclimate.com/github/adamzareba/EntityGraph/badges/issue_count.svg)](https://codeclimate.com/github/adamzareba/EntityGraph)
 
 Example project for Spring Boot that uses JPA/Hibernate for querying data from database, exposed REST API that returns data querying for data structure:
 
